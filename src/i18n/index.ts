@@ -1,0 +1,1 @@
+export { FastPlaceOrderLocaleProvider } from "./provider";

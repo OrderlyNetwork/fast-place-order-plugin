@@ -1,0 +1,12 @@
+export const FastPlaceOrderLocales = {
+  "fastPlaceOrder.title": "Fast Place Order",
+  "fastPlaceOrder.quickTrade": "Quick Trade",
+  "fastPlaceOrder.buy": "Buy",
+  "fastPlaceOrder.sell": "Sell",
+  "fastPlaceOrder.mark": "Mark",
+  "fastPlaceOrder.qty": "Qty",
+  "fastPlaceOrder.toastSuccess": "Market {{side}} {{qty}} {{symbol}} submitted",
+  "fastPlaceOrder.toastError": "Order failed: {{reason}}",
+};
+
+export type TFastPlaceOrderLocales = typeof FastPlaceOrderLocales;

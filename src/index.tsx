@@ -2,6 +2,9 @@ import React from "react";
 import { createInterceptor } from "@orderly.network/plugin-core";
 import type { OrderlySDK } from "@orderly.network/plugin-core";
 import { FastPlaceOrderWidget } from "./components/fastPlaceOrderWidget";
+import { FastPlaceOrderLocaleProvider } from "./i18n";
+
+export { FastPlaceOrderLocaleProvider } from "./i18n";
 
 export interface FastPlaceOrderPluginOptions {
   /** Optional CSS class for the wrapper */
@@ -26,10 +29,12 @@ export function registerFastPlaceOrderPlugin(options?: FastPlaceOrderPluginOptio
         createInterceptor(
           "Trading.OrderEntry.SubmitButton" as any,
           (Original, props, _api) => (
-            <div className={options?.className}>
-              <FastPlaceOrderWidget />
-              <Original {...props} />
-            </div>
+            <FastPlaceOrderLocaleProvider>
+              <div className={options?.className}>
+                <FastPlaceOrderWidget />
+                <Original {...props} />
+              </div>
+            </FastPlaceOrderLocaleProvider>
           ),
         ),
       ],
