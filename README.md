@@ -2,9 +2,7 @@
 
 A fast-place-order plugin for the Orderly SDK. Mounts a **draggable quick-order widget** next to the trading UI for one-click market buy/sell, quantity by percentage, and max-quantity confirmation.
 
-<!-- <img src="assets/preview.png" alt="Fast Place Order Widget" width="400" /> -->
-
-![Fast Place Order Widget](/assets/preview.png)
+<img src="assets/preview.png" alt="Fast Place Order Widget" width="400" />
 
 ## Features
 
