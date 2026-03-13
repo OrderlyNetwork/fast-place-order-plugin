@@ -20,7 +20,8 @@
     "@orderly.network/hooks": "2.10.2-internal-plugin-1.1",
     "@orderly.network/i18n": "2.10.2-internal-plugin-1.1",
     "@orderly.network/types": "2.10.2-internal-plugin-1.1",
-    "@orderly.network/ui": "2.10.2-internal-plugin-1.1"
+    "@orderly.network/ui": "2.10.2-internal-plugin-1.1",
+    "@orderly.network/utils": "2.10.2-internal-plugin-1.1"
   },
   "dependencies": {},
   "devDependencies": {

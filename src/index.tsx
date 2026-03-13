@@ -27,12 +27,13 @@ export function registerFastPlaceOrderPlugin(options?: FastPlaceOrderPluginOptio
         // TODO: Change the target path to the component you want to intercept.
         // Use the Inspector tool to discover available paths.
         createInterceptor(
-          "Trading.OrderEntry.SubmitButton" as any,
+          "TradingView.Desktop" as any,
           (Original, props, _api) => (
             <FastPlaceOrderLocaleProvider>
               <div className={options?.className}>
-                <FastPlaceOrderWidget />
                 <Original {...props} />
+                {/* @ts-ignore */}
+                <FastPlaceOrderWidget symbol={props.symbol}/>
               </div>
             </FastPlaceOrderLocaleProvider>
           ),

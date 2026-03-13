@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "빠른 주문",
+  "fastPlaceOrder.quickTrade": "빠른 거래",
+  "fastPlaceOrder.buy": "매수",
+  "fastPlaceOrder.sell": "매도",
+  "fastPlaceOrder.long": "롱",
+  "fastPlaceOrder.short": "숏",
+  "fastPlaceOrder.mark": "마크",
+  "fastPlaceOrder.qty": "수량",
+  "fastPlaceOrder.qtyPlaceholder": "수량 입력",
+  "fastPlaceOrder.toastSuccess": "시장 {{side}} {{qty}} {{symbol}} 제출됨",
+  "fastPlaceOrder.toastError": "주문 실패: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "주문 확인",
+  "fastPlaceOrder.maxQtyConfirmContent": "수량이 허용 최대치를 초과합니다. {{maxQty}} {{base}}(으)로 주문하시겠습니까?",
+  "fastPlaceOrder.orderConfirmTitle": "주문 확인",
+  "fastPlaceOrder.disableOrderConfirm": "주문 전 다시 묻지 않기",
+  "fastPlaceOrder.marketPrice": "시장가",
+  "fastPlaceOrder.placeOrderNow": "지금 주문",
+  "fastPlaceOrder.cancel": "취소"
+}

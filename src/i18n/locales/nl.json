@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "Snelle order",
+  "fastPlaceOrder.quickTrade": "Snelle handel",
+  "fastPlaceOrder.buy": "Kopen",
+  "fastPlaceOrder.sell": "Verkopen",
+  "fastPlaceOrder.long": "Long",
+  "fastPlaceOrder.short": "Short",
+  "fastPlaceOrder.mark": "Mark",
+  "fastPlaceOrder.qty": "Aantal",
+  "fastPlaceOrder.qtyPlaceholder": "Voer hoeveelheid in",
+  "fastPlaceOrder.toastSuccess": "Markt {{side}} {{qty}} {{symbol}} ingediend",
+  "fastPlaceOrder.toastError": "Order mislukt: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "Orderbevestiging",
+  "fastPlaceOrder.maxQtyConfirmContent": "De hoeveelheid overschrijdt het maximum. Order plaatsen met {{maxQty}} {{base}}?",
+  "fastPlaceOrder.orderConfirmTitle": "Orderbevestiging",
+  "fastPlaceOrder.disableOrderConfirm": "Niet opnieuw vragen voor het plaatsen van orders",
+  "fastPlaceOrder.marketPrice": "Marktprijs",
+  "fastPlaceOrder.placeOrderNow": "Plaats order nu",
+  "fastPlaceOrder.cancel": "Annuleren"
+}

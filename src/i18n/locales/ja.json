@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "クイック注文",
+  "fastPlaceOrder.quickTrade": "クイック取引",
+  "fastPlaceOrder.buy": "買い",
+  "fastPlaceOrder.sell": "売り",
+  "fastPlaceOrder.long": "ロング",
+  "fastPlaceOrder.short": "ショート",
+  "fastPlaceOrder.mark": "マーク",
+  "fastPlaceOrder.qty": "数量",
+  "fastPlaceOrder.qtyPlaceholder": "数量を入力",
+  "fastPlaceOrder.toastSuccess": "成行{{side}} {{qty}} {{symbol}} を送信しました",
+  "fastPlaceOrder.toastError": "注文に失敗しました：{{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "注文確認",
+  "fastPlaceOrder.maxQtyConfirmContent": "数量が最大許容値を超えています。{{maxQty}} {{base}} で注文しますか？",
+  "fastPlaceOrder.orderConfirmTitle": "注文確認",
+  "fastPlaceOrder.disableOrderConfirm": "注文前に再度確認しない",
+  "fastPlaceOrder.marketPrice": "成行価格",
+  "fastPlaceOrder.placeOrderNow": "今すぐ注文",
+  "fastPlaceOrder.cancel": "キャンセル"
+}

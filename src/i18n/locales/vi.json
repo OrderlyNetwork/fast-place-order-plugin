@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "Đặt lệnh nhanh",
+  "fastPlaceOrder.quickTrade": "Giao dịch nhanh",
+  "fastPlaceOrder.buy": "Mua",
+  "fastPlaceOrder.sell": "Bán",
+  "fastPlaceOrder.long": "Long",
+  "fastPlaceOrder.short": "Short",
+  "fastPlaceOrder.mark": "Đánh dấu",
+  "fastPlaceOrder.qty": "Số lượng",
+  "fastPlaceOrder.qtyPlaceholder": "Nhập số lượng",
+  "fastPlaceOrder.toastSuccess": "Thị trường {{side}} {{qty}} {{symbol}} đã gửi",
+  "fastPlaceOrder.toastError": "Đặt lệnh thất bại: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "Xác nhận lệnh",
+  "fastPlaceOrder.maxQtyConfirmContent": "Số lượng vượt quá mức tối đa cho phép. Đặt lệnh với {{maxQty}} {{base}}?",
+  "fastPlaceOrder.orderConfirmTitle": "Xác nhận lệnh",
+  "fastPlaceOrder.disableOrderConfirm": "Không hỏi lại trước khi đặt lệnh",
+  "fastPlaceOrder.marketPrice": "Giá thị trường",
+  "fastPlaceOrder.placeOrderNow": "Đặt lệnh ngay",
+  "fastPlaceOrder.cancel": "Hủy"
+}

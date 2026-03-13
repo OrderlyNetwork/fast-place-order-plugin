@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "快速下单",
+  "fastPlaceOrder.quickTrade": "快速交易",
+  "fastPlaceOrder.buy": "买入",
+  "fastPlaceOrder.sell": "卖出",
+  "fastPlaceOrder.long": "做多",
+  "fastPlaceOrder.short": "做空",
+  "fastPlaceOrder.mark": "标记",
+  "fastPlaceOrder.qty": "数量",
+  "fastPlaceOrder.qtyPlaceholder": "输入数量",
+  "fastPlaceOrder.toastSuccess": "市价{{side}} {{qty}} {{symbol}} 已提交",
+  "fastPlaceOrder.toastError": "下单失败：{{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "订单确认",
+  "fastPlaceOrder.maxQtyConfirmContent": "数量超过最大允许值。是否以 {{maxQty}} {{base}} 下单？",
+  "fastPlaceOrder.orderConfirmTitle": "订单确认",
+  "fastPlaceOrder.disableOrderConfirm": "下单前不再询问",
+  "fastPlaceOrder.marketPrice": "市价",
+  "fastPlaceOrder.placeOrderNow": "立即下单",
+  "fastPlaceOrder.cancel": "取消"
+}

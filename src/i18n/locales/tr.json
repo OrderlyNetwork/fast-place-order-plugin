@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "Hızlı emir",
+  "fastPlaceOrder.quickTrade": "Hızlı işlem",
+  "fastPlaceOrder.buy": "Al",
+  "fastPlaceOrder.sell": "Sat",
+  "fastPlaceOrder.long": "Long",
+  "fastPlaceOrder.short": "Short",
+  "fastPlaceOrder.mark": "İşaret",
+  "fastPlaceOrder.qty": "Miktar",
+  "fastPlaceOrder.qtyPlaceholder": "Miktar girin",
+  "fastPlaceOrder.toastSuccess": "Piyasa {{side}} {{qty}} {{symbol}} gönderildi",
+  "fastPlaceOrder.toastError": "Emir başarısız: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "Emir onayı",
+  "fastPlaceOrder.maxQtyConfirmContent": "Miktar izin verilen maksimumu aşıyor. {{maxQty}} {{base}} ile emir vermek ister misiniz?",
+  "fastPlaceOrder.orderConfirmTitle": "Emir onayı",
+  "fastPlaceOrder.disableOrderConfirm": "Emir vermeden önce tekrar sorma",
+  "fastPlaceOrder.marketPrice": "Piyasa fiyatı",
+  "fastPlaceOrder.placeOrderNow": "Şimdi emir ver",
+  "fastPlaceOrder.cancel": "İptal"
+}
