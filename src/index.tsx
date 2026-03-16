@@ -7,8 +7,7 @@ import { FastPlaceOrderLocaleProvider } from "./i18n";
 export { FastPlaceOrderLocaleProvider } from "./i18n";
 
 export interface FastPlaceOrderPluginOptions {
-  /** Optional CSS class for the wrapper */
-  className?: string;
+  
 }
 
 /**
@@ -30,11 +29,9 @@ export function registerFastPlaceOrderPlugin(options?: FastPlaceOrderPluginOptio
           "TradingView.Desktop" as any,
           (Original, props, _api) => (
             <FastPlaceOrderLocaleProvider>
-              <div className={options?.className}>
                 <Original {...props} />
                 {/* @ts-ignore */}
                 <FastPlaceOrderWidget symbol={props.symbol}/>
-              </div>
             </FastPlaceOrderLocaleProvider>
           ),
         ),
