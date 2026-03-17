@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "Szybkie zlecenie",
+  "fastPlaceOrder.quickTrade": "Szybki handel",
+  "fastPlaceOrder.buy": "Kup",
+  "fastPlaceOrder.sell": "Sprzedaj",
+  "fastPlaceOrder.long": "Long",
+  "fastPlaceOrder.short": "Short",
+  "fastPlaceOrder.mark": "Mark",
+  "fastPlaceOrder.qty": "Ilość",
+  "fastPlaceOrder.qtyPlaceholder": "Wprowadź ilość",
+  "fastPlaceOrder.toastSuccess": "Rynek {{side}} {{qty}} {{symbol}} złożony",
+  "fastPlaceOrder.toastError": "Zlecenie nie powiodło się: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "Potwierdzenie zlecenia",
+  "fastPlaceOrder.maxQtyConfirmContent": "Ilość przekracza maksimum. Złożyć zlecenie na {{maxQty}} {{base}}?",
+  "fastPlaceOrder.orderConfirmTitle": "Potwierdzenie zlecenia",
+  "fastPlaceOrder.disableOrderConfirm": "Nie pytaj ponownie przed składaniem zleceń",
+  "fastPlaceOrder.marketPrice": "Cena rynkowa",
+  "fastPlaceOrder.placeOrderNow": "Złóż zlecenie teraz",
+  "fastPlaceOrder.cancel": "Anuluj"
+}

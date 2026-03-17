@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "Быстрый ордер",
+  "fastPlaceOrder.quickTrade": "Быстрая сделка",
+  "fastPlaceOrder.buy": "Купить",
+  "fastPlaceOrder.sell": "Продать",
+  "fastPlaceOrder.long": "Лонг",
+  "fastPlaceOrder.short": "Шорт",
+  "fastPlaceOrder.mark": "Марка",
+  "fastPlaceOrder.qty": "Кол-во",
+  "fastPlaceOrder.qtyPlaceholder": "Введите количество",
+  "fastPlaceOrder.toastSuccess": "Рыночный {{side}} {{qty}} {{symbol}} отправлен",
+  "fastPlaceOrder.toastError": "Ошибка ордера: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "Подтверждение ордера",
+  "fastPlaceOrder.maxQtyConfirmContent": "Количество превышает допустимый максимум. Разместить ордер на {{maxQty}} {{base}}?",
+  "fastPlaceOrder.orderConfirmTitle": "Подтверждение ордера",
+  "fastPlaceOrder.disableOrderConfirm": "Больше не спрашивать перед размещением ордеров",
+  "fastPlaceOrder.marketPrice": "Рыночная цена",
+  "fastPlaceOrder.placeOrderNow": "Разместить ордер сейчас",
+  "fastPlaceOrder.cancel": "Отмена"
+}

@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "Order cepat",
+  "fastPlaceOrder.quickTrade": "Trading cepat",
+  "fastPlaceOrder.buy": "Beli",
+  "fastPlaceOrder.sell": "Jual",
+  "fastPlaceOrder.long": "Long",
+  "fastPlaceOrder.short": "Short",
+  "fastPlaceOrder.mark": "Mark",
+  "fastPlaceOrder.qty": "Jumlah",
+  "fastPlaceOrder.qtyPlaceholder": "Masukkan jumlah",
+  "fastPlaceOrder.toastSuccess": "Pasar {{side}} {{qty}} {{symbol}} dikirim",
+  "fastPlaceOrder.toastError": "Order gagal: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "Konfirmasi order",
+  "fastPlaceOrder.maxQtyConfirmContent": "Jumlah melebihi batas maksimum. Place order dengan {{maxQty}} {{base}}?",
+  "fastPlaceOrder.orderConfirmTitle": "Konfirmasi order",
+  "fastPlaceOrder.disableOrderConfirm": "Jangan tanya lagi sebelum place order",
+  "fastPlaceOrder.marketPrice": "Harga pasar",
+  "fastPlaceOrder.placeOrderNow": "Place order sekarang",
+  "fastPlaceOrder.cancel": "Batal"
+}

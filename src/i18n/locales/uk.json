@@ -1,0 +1,20 @@
+{
+  "fastPlaceOrder.title": "Швидке замовлення",
+  "fastPlaceOrder.quickTrade": "Швидка угода",
+  "fastPlaceOrder.buy": "Купити",
+  "fastPlaceOrder.sell": "Продати",
+  "fastPlaceOrder.long": "Лонг",
+  "fastPlaceOrder.short": "Шорт",
+  "fastPlaceOrder.mark": "Марка",
+  "fastPlaceOrder.qty": "Кільк.",
+  "fastPlaceOrder.qtyPlaceholder": "Введіть кількість",
+  "fastPlaceOrder.toastSuccess": "Ринковий {{side}} {{qty}} {{symbol}} надіслано",
+  "fastPlaceOrder.toastError": "Помилка замовлення: {{reason}}",
+  "fastPlaceOrder.maxQtyConfirmTitle": "Підтвердження замовлення",
+  "fastPlaceOrder.maxQtyConfirmContent": "Кількість перевищує дозволений максимум. Розмістити замовлення на {{maxQty}} {{base}}?",
+  "fastPlaceOrder.orderConfirmTitle": "Підтвердження замовлення",
+  "fastPlaceOrder.disableOrderConfirm": "Більше не питати перед розміщенням замовлень",
+  "fastPlaceOrder.marketPrice": "Ринкова ціна",
+  "fastPlaceOrder.placeOrderNow": "Розмістити замовлення зараз",
+  "fastPlaceOrder.cancel": "Скасувати"
+}
