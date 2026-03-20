@@ -55,6 +55,14 @@ Pass the `plugins` array to `OrderlyAppProvider`:
 </OrderlyAppProvider>
 ```
 
+### Import Styles
+
+This plugin ships its Tailwind/CSS bundle in `dist/styles.css`. Import it once in your app entry (e.g. `main.tsx` / `index.tsx`) so the widget styles apply globally:
+
+```ts
+import "@orderly.network/fast-place-order-plugin/dist/styles.css";
+```
+
 ### Options
 
 | Option      | Type     | Required | Description                                      |
