@@ -1,4 +1,4 @@
-export const FastPlaceOrderLocales = {
+export const LocaleMessages = {
   "fastPlaceOrder.title": "Fast Place Order",
   "fastPlaceOrder.quickTrade": "Quick Trade",
   "fastPlaceOrder.buy": "Buy",
@@ -14,10 +14,9 @@ export const FastPlaceOrderLocales = {
   "fastPlaceOrder.maxQtyConfirmContent":
     "The quantity exceeds the maximum allowed. Place order with {{maxQty}} {{base}} instead?",
   "fastPlaceOrder.orderConfirmTitle": "Order confirmation",
-  "fastPlaceOrder.disableOrderConfirm": "Don't ask me again before placing orders",
+  "fastPlaceOrder.disableOrderConfirm":
+    "Don't ask me again before placing orders",
   "fastPlaceOrder.marketPrice": "Market price",
   "fastPlaceOrder.placeOrderNow": "Place order now",
   "fastPlaceOrder.cancel": "Cancel",
 };
-
-export type TFastPlaceOrderLocales = typeof FastPlaceOrderLocales;

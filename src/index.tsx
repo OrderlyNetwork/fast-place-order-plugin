@@ -2,19 +2,19 @@ import React from "react";
 import { createInterceptor } from "@orderly.network/plugin-core";
 import type { OrderlySDK } from "@orderly.network/plugin-core";
 import { FastPlaceOrderWidget } from "./components/fastPlaceOrderWidget";
-import { FastPlaceOrderLocaleProvider } from "./i18n";
+import { LocaleProvider } from "./i18n";
 
-export { FastPlaceOrderLocaleProvider } from "./i18n";
+export { LocaleProvider as FastPlaceOrderLocaleProvider } from "./i18n";
 
-export interface FastPlaceOrderPluginOptions {
-  
-}
+export interface FastPlaceOrderPluginOptions {}
 
 /**
  * Register the fast-place-order plugin.
  * Intercepts a target component and injects custom UI.
  */
-export function registerFastPlaceOrderPlugin(options?: FastPlaceOrderPluginOptions) {
+export function registerFastPlaceOrderPlugin(
+  options?: FastPlaceOrderPluginOptions
+) {
   return (SDK: OrderlySDK) => {
     SDK.registerPlugin({
       id: "orderly-plugin-fast-place-order-db4d5bf6",
@@ -28,12 +28,12 @@ export function registerFastPlaceOrderPlugin(options?: FastPlaceOrderPluginOptio
         createInterceptor(
           "TradingView.Desktop" as any,
           (Original, props, _api) => (
-            <FastPlaceOrderLocaleProvider>
-                <Original {...props} />
-                {/* @ts-ignore */}
-                <FastPlaceOrderWidget symbol={props.symbol}/>
-            </FastPlaceOrderLocaleProvider>
-          ),
+            <LocaleProvider>
+              <Original {...props} />
+              {/* @ts-ignore */}
+              <FastPlaceOrderWidget symbol={props.symbol} />
+            </LocaleProvider>
+          )
         ),
       ],
 
