@@ -1,6 +1,6 @@
 # @orderly.network/fast-place-order-plugin
 
-A fast-place-order plugin for the Orderly SDK. Mounts a **draggable quick-order widget** next to the trading UI for one-click market buy/sell, quantity by percentage, and max-quantity confirmation.
+A fast-place-order plugin for the Orderly SDK. Mounts a **draggable quick-order widget** next to the trading UI for one-click market buy/sell, quantity by percentage, max-quantity confirmation, and desktop menu visibility toggle.
 
 
 ## Features
@@ -13,6 +13,10 @@ Shows a quick-order panel beside the trading view so you can place market buy/se
 ### Draggable Floating Widget
 
 The widget can be dragged to reposition and does not block the main trading area. It stays visible with the trading view for fast access.
+
+### Desktop Menu Toggle
+
+Adds a `Fast Place Order` toggle item into `TradingView.DisplayControl.DesktopMenuList` so users can persist widget visibility across refreshes.
 
 
 ### Max Quantity Confirmation
@@ -38,7 +42,7 @@ import { registerFastPlaceOrderPlugin } from "@orderly.network/fast-place-order-
 
 const plugins = [
   registerFastPlaceOrderPlugin({
-    className: "my-fast-place-order", // optional
+    autoShowOnFullscreen: true, // optional, default: true
   }),
 ];
 ```
@@ -67,17 +71,19 @@ import "@orderly.network/fast-place-order-plugin/dist/styles.css";
 
 | Option      | Type     | Required | Description                                      |
 |------------|----------|----------|--------------------------------------------------|
-| `className`| `string` | No       | CSS class name for the quick-order widget wrapper |
+| `autoShowOnFullscreen` | `boolean` | No | Auto-open the fast order popup when entering fullscreen trading view. Defaults to `true`. |
 
 ### Peer Dependencies
 
 This plugin requires the following Orderly SDK packages:
 
+- `@orderly.network/core`
 - `@orderly.network/hooks`
 - `@orderly.network/plugin-core`
 - `@orderly.network/i18n`
 - `@orderly.network/types`
 - `@orderly.network/ui`
+- `@orderly.network/ui-scaffold`
 - `@orderly.network/utils`
 - `react` >= 18
 - `react-dom` >= 18
