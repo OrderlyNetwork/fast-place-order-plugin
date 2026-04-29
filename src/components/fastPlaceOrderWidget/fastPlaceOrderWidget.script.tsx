@@ -175,6 +175,19 @@ export const useFastPlaceOrderScript = (
     isMutating,
     symbolInfo,
   } = orderEntry;
+  const submitRef = useRef(submit);
+  const helperRef = useRef(helper);
+  const formattedOrderRef = useRef(formattedOrder);
+  const currentErrorMsgRef = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    submitRef.current = submit;
+  }, [submit]);
+  useEffect(() => {
+    helperRef.current = helper;
+  }, [helper]);
+  useEffect(() => {
+    formattedOrderRef.current = formattedOrder;
+  }, [formattedOrder]);
   const orderEntryBridge = orderEntry as typeof orderEntry & OrderEntryBridge;
   const maxQtys = orderEntryBridge.maxQtys;
   const fallbackMaxQty = orderEntryBridge.maxQty ?? 0;
@@ -191,6 +204,9 @@ export const useFastPlaceOrderScript = (
       getNestedErrorMsg(orderEntryBridge.metaState?.errors),
     [orderEntryBridge.errorMsg, orderEntryBridge.metaState?.errors],
   );
+  useEffect(() => {
+    currentErrorMsgRef.current = currentErrorMsg ?? undefined;
+  }, [currentErrorMsg]);
   const setOrderQuantity = useCallback(
     (value: string) => {
       if (orderEntryBridge.setValue) {
@@ -409,31 +425,58 @@ export const useFastPlaceOrderScript = (
 
   const submitMarketOrder = useCallback(
     async (side: "buy" | "sell", nextQty: number) => {
+      const expectedSide = side === "buy" ? OrderSide.BUY : OrderSide.SELL;
       // 先同步写入 useOrderEntry，确保 side / order_quantity / order_type 已设置
       setValues({
         order_quantity: String(nextQty),
-        side: side === "buy" ? OrderSide.BUY : OrderSide.SELL,
+        side: expectedSide,
         order_type: OrderType.MARKET,
       });
 
       return new Promise<void>((resolve) => {
-        // 延迟到下一事件循环再 validate/submit，确保 setValues 已生效，避免点击百分比后立即下单报错
+        /**
+         * Ensure we submit using the latest hook state.
+         * `submit` in `useOrderEntry` captures render-time `formattedOrder`,
+         * so we wait until side/qty/type are applied before invoking submit.
+         */
+        const waitUntilOrderStateApplied = async () => {
+          for (let i = 0; i < 8; i++) {
+            await new Promise<void>((frameResolve) => {
+              requestAnimationFrame(() => frameResolve());
+            });
+            const currentOrder = formattedOrderRef.current;
+            const currentQty = Number(currentOrder.order_quantity);
+            const qtyMatches = Number.isFinite(currentQty) && currentQty === nextQty;
+            if (
+              currentOrder.side === expectedSide &&
+              currentOrder.order_type === OrderType.MARKET &&
+              qtyMatches
+            ) {
+              return;
+            }
+          }
+        };
+
+        // 延迟到下一事件循环再 validate/submit，确保 setValues 已生效
         const runAfterUpdate = () => {
           requestAnimationFrame(async () => {
-            if (currentErrorMsg) {
-              setMessage({ type: "error", reason: currentErrorMsg });
-              toast.error(currentErrorMsg);
+            await waitUntilOrderStateApplied();
+            const latestErrorMsg = currentErrorMsgRef.current;
+            if (latestErrorMsg) {
+              setMessage({ type: "error", reason: latestErrorMsg });
+              toast.error(latestErrorMsg);
               resolve();
               return;
             }
 
             try {
-              await helper.validate();
+              await helperRef.current.validate();
               if (needConfirm) {
+                const latestFormattedOrder = formattedOrderRef.current;
                 const order = {
-                  ...formattedOrder,
+                  ...latestFormattedOrder,
                   symbol,
-                  side: side === "buy" ? OrderSide.BUY : OrderSide.SELL,
+                  side: expectedSide,
                   order_type: OrderType.MARKET,
                   order_quantity: String(nextQty),
                 };
@@ -452,7 +495,7 @@ export const useFastPlaceOrderScript = (
                 }
               }
 
-              const result = await submit({ resetOnSuccess: false });
+              const result = await submitRef.current({ resetOnSuccess: false });
               if (result?.success) {
                 setMessage({ type: "success", side, qty: nextQty, symbol });
                 onOrderPlaced?.({ side, qty: nextQty, symbol });
@@ -478,12 +521,9 @@ export const useFastPlaceOrderScript = (
     },
     [
       formattedOrder,
-      helper,
-      currentErrorMsg,
       needConfirm,
       onOrderPlaced,
       setValues,
-      submit,
       symbol,
       symbolInfo,
     ],
@@ -563,8 +603,6 @@ export const useFastPlaceOrderScript = (
     isMutating ||
     !(qty > 0) ||
     (maxQtyBuySafe <= 0 && maxQtySellSafe <= 0);
-
-  console.log('---->>>>isWidgetVisible', isWidgetVisible);
 
   return {
     fullscreen,

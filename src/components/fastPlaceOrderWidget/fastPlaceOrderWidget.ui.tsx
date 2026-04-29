@@ -68,7 +68,7 @@ export const FastPlaceOrder: FC<FastPlaceOrderProps> = (props) => {
       ref={widgetRef}
       direction="column"
       position="fixed"
-      className={cn("oui-fastPlaceOrder oui-w-[550px]", className)}
+      className={cn("oui-fastPlaceOrder oui-shadow-lg", className)}
       style={{
         zIndex: 9999,
         ...positionStyle,
