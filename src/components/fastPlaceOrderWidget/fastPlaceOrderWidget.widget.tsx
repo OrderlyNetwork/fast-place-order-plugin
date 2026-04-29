@@ -8,6 +8,7 @@ export type FastPlaceOrderWidgetProps = Pick<
 > & {
   symbol?: string;
   defaultQty?: number;
+  autoShowOnFullscreen?: boolean;
   onOrderPlaced?: (params: {
     side: "buy" | "sell";
     qty: number;
@@ -20,8 +21,13 @@ export const FastPlaceOrderWidget: React.FC<FastPlaceOrderWidgetProps> = (
 ) => {
   const { className, style, ...scriptOptions } = props;
   const state = useFastPlaceOrderScript(scriptOptions);
+  const shouldAutoShowInFullscreen = props.autoShowOnFullscreen ?? true;
+  const shouldRender =
+    state.isWidgetVisible ||
+    (state.fullscreen && shouldAutoShowInFullscreen);
 
-  if (!state.fullscreen) {
+  /** Render when user manually opens, or fullscreen auto-show is enabled. */
+  if (!shouldRender) {
     return null;
   }
 

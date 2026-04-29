@@ -77,14 +77,15 @@ export const FastPlaceOrder: FC<FastPlaceOrderProps> = (props) => {
     >
       <Box className="oui-relative">
         <Box
+          /** Compact card chrome matches the screenshot while keeping strong contrast in dark theme. */
           className={cn(
-            "oui-fastPlaceOrder-container oui-flex oui-flex-col oui-gap-1 oui-rounded-lg oui-p-0 oui-bg-base-8 oui-border oui-border-base-7",
+            "oui-fastPlaceOrder-container oui-flex oui-flex-col oui-gap-1 oui-rounded-md oui-p-1 oui-bg-base-8 oui-border oui-border-base-6 oui-shadow-sm",
           )}
         >
           <Flex
             direction="row"
             itemAlign="stretch"
-            className="oui-fastPlaceOrder-top oui-w-full oui-gap-1.5 oui-items-stretch"
+            className="oui-fastPlaceOrder-top oui-w-full oui-gap-1 oui-items-stretch"
           >
             <DragHandle
               isDragging={isDragging}

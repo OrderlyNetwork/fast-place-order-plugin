@@ -15,12 +15,13 @@ export const DragHandle: FC<DragHandleProps> = ({
     role="button"
     tabIndex={0}
     className={cn(
-      "oui-fastPlaceOrder-dragArea oui-flex oui-items-center oui-justify-center oui-shrink-0 oui-w-3 oui-text-base-4 oui-cursor-grab oui-select-none",
-      isDragging && "oui-cursor-grabbing",
+      /** A subtle grip style reduces noise while still advertising draggable affordance. */
+      "oui-fastPlaceOrder-dragArea oui-flex oui-items-center oui-justify-center oui-shrink-0 oui-w-4 oui-text-[10px] oui-font-medium oui-text-base-contrast-54 oui-cursor-grab oui-select-none oui-rounded-sm oui-transition-colors hover:oui-bg-base-7/60",
+      isDragging && "oui-cursor-grabbing oui-bg-base-7/70",
     )}
     style={{ touchAction: "none" as const }}
     onPointerDown={onPointerDown}
   >
-    ☰
+    ⋮⋮
   </Box>
 );

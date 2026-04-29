@@ -12,6 +12,8 @@ import {
 import { orderConfirmDialogId } from "./orderConfirmDialog";
 
 export const TradingviewFullscreenKey = "orderly:tradingview-fullscreen";
+export const FastPlaceOrderVisibleKey = "orderly:fast-place-order-visible";
+const FastPlaceOrderDefaultVisible = false;
 
 const DEFAULT_FIXED_POSITION = "bottom-right" as const;
 
@@ -26,11 +28,28 @@ export type FastPlaceOrderMessage =
 export interface UseFastPlaceOrderScriptOptions {
   symbol?: string;
   defaultQty?: number;
+  autoShowOnFullscreen?: boolean;
   onOrderPlaced?: (params: {
     side: "buy" | "sell";
     qty: number;
     symbol?: string;
   }) => void;
+}
+
+/**
+ * Shared visibility state hook used by menu and widget.
+ * Ensures all plugin surfaces consume the same source of truth by reusing
+ * the existing SDK `useLocalStorage` hook.
+ */
+export function useFastPlaceOrderVisibility(
+  defaultVisible = FastPlaceOrderDefaultVisible,
+) {
+  const [isWidgetVisible, setIsWidgetVisible] = useLocalStorage<boolean>(
+    FastPlaceOrderVisibleKey,
+    defaultVisible,
+  );
+
+  return [isWidgetVisible, setIsWidgetVisible] as const;
 }
 
 type OrderEntryBridge = {
@@ -109,6 +128,7 @@ export const useFastPlaceOrderScript = (
   const {
     symbol: symbolProp = "PERP_ETH_USDC",
     defaultQty,
+    autoShowOnFullscreen = true,
     onOrderPlaced,
   } = options;
 
@@ -116,6 +136,10 @@ export const useFastPlaceOrderScript = (
     TradingviewFullscreenKey,
     false,
   );
+  const [isWidgetVisible, setIsWidgetVisible] = useFastPlaceOrderVisibility(
+    FastPlaceOrderDefaultVisible,
+  );
+  const previousFullscreenRef = useRef(fullscreen);
 
   const [needConfirm] = useLocalStorage("orderly_order_confirm", true);
 
@@ -192,6 +216,15 @@ export const useFastPlaceOrderScript = (
     const n = parseFloat(qtyInput);
     return Number.isFinite(n) && n >= 0 ? n : 0;
   }, [qtyInput]);
+
+  useEffect(() => {
+    /** Auto-open only when entering fullscreen if the plugin option allows it. */
+    const wasFullscreen = previousFullscreenRef.current;
+    if (!wasFullscreen && fullscreen && autoShowOnFullscreen) {
+      setIsWidgetVisible(true);
+    }
+    previousFullscreenRef.current = fullscreen;
+  }, [autoShowOnFullscreen, fullscreen, setIsWidgetVisible]);
 
   useEffect(() => {
     if (defaultQty != null && defaultQty > 0) {
@@ -341,8 +374,8 @@ export const useFastPlaceOrderScript = (
     () =>
       selectedPercent != null
         ? formatMaxQty(
-            new Decimal(maxQtyBuySafe).mul(selectedPercent).div(100).toNumber(),
-          )
+          new Decimal(maxQtyBuySafe).mul(selectedPercent).div(100).toNumber(),
+        )
         : "",
     [formatMaxQty, maxQtyBuySafe, selectedPercent],
   );
@@ -350,8 +383,8 @@ export const useFastPlaceOrderScript = (
     () =>
       selectedPercent != null
         ? formatMaxQty(
-            new Decimal(maxQtySellSafe).mul(selectedPercent).div(100).toNumber(),
-          )
+          new Decimal(maxQtySellSafe).mul(selectedPercent).div(100).toNumber(),
+        )
         : "",
     [formatMaxQty, maxQtySellSafe, selectedPercent],
   );
@@ -531,8 +564,12 @@ export const useFastPlaceOrderScript = (
     !(qty > 0) ||
     (maxQtyBuySafe <= 0 && maxQtySellSafe <= 0);
 
+  console.log('---->>>>isWidgetVisible', isWidgetVisible);
+
   return {
     fullscreen,
+    isWidgetVisible,
+    setIsWidgetVisible,
     symbol,
     symbolInfo,
     baseDp,
