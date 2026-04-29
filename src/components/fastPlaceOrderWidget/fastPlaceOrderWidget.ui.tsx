@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useTranslation } from "@orderly.network/i18n";
-import { Box, Flex, cn } from "@orderly.network/ui";
-import type { TFastPlaceOrderLocales } from "../../i18n/module";
+import { Box, CloseIcon, Flex, cn } from "@orderly.network/ui";
+import { LocaleMessages } from "../../i18n/module";
 import type { FastPlaceOrderState } from "./fastPlaceOrderWidget.script";
 import {
   DragHandle,
@@ -22,7 +22,7 @@ export type FastPlaceOrderProps = FastPlaceOrderState & {
 
 export const FastPlaceOrder: FC<FastPlaceOrderProps> = (props) => {
   const { t: tBase } = useTranslation();
-  const t = tBase as (key: keyof TFastPlaceOrderLocales) => string;
+  const t = tBase as (key: keyof typeof LocaleMessages) => string;
   const {
     className,
     style,
@@ -51,16 +51,19 @@ export const FastPlaceOrder: FC<FastPlaceOrderProps> = (props) => {
     positionStyle,
     onDragHandlePointerDown,
     isDragging,
+    closeWidget,
   } = props;
 
   const symbolBase = getSymbolBase(symbol);
   const maxQtyStrBuy = formattedMaxQtyBuy !== "0" ? formattedMaxQtyBuy : "—";
   const maxQtyStrSell = formattedMaxQtySell !== "0" ? formattedMaxQtySell : "—";
-  const messageText = message ? formatMessageText(message, t) : null;
+  /** Adapter keeps strict locale key typing while satisfying generic formatter helpers. */
+  const tForFormatter = t as (key: string | number | symbol) => string;
+  const messageText = message ? formatMessageText(message, tForFormatter) : null;
   const maxQtyConfirmContent = formatMaxQtyConfirmContent(
     formattedMaxQtyForSide,
     baseAsset,
-    t,
+    tForFormatter,
   );
 
   return (
@@ -120,10 +123,18 @@ export const FastPlaceOrder: FC<FastPlaceOrderProps> = (props) => {
               onClick={() => placeMarketOrder("sell")}
             />
 
-            <DragHandle
-              isDragging={isDragging}
-              onPointerDown={onDragHandlePointerDown}
-            />
+            {/* Delegate to shared visibility hook state so menu toggle stays in sync. */}
+            <button
+              type="button"
+              data-no-drag
+              aria-label={t("fastPlaceOrder.cancel")}
+              className={cn(
+                "oui-w-5 oui-min-w-5 oui-flex oui-items-center oui-justify-center ",
+              )}
+              onClick={closeWidget}
+            >
+              <CloseIcon size={14} className="hover:oui-text-base-contrast-80 oui-text-base-contrast-54" />
+            </button>
           </Flex>
 
           <PercentButtons

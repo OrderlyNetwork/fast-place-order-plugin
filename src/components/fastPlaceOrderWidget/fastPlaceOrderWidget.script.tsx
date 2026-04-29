@@ -350,6 +350,12 @@ export const useFastPlaceOrderScript = (
     },
     [pixelPosition],
   );
+  /**
+   * Keep close behavior centralized so UI triggers shared persisted visibility state.
+   */
+  const closeWidget = useCallback(() => {
+    setIsWidgetVisible(false);
+  }, [setIsWidgetVisible]);
 
   const maxQtyBuySafe = useMemo(
     () =>
@@ -639,6 +645,7 @@ export const useFastPlaceOrderScript = (
     isDragging,
     positionStyle,
     onDragHandlePointerDown,
+    closeWidget,
   };
 };
 
