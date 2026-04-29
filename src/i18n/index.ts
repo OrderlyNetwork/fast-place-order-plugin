@@ -1,1 +1,1 @@
-export { FastPlaceOrderLocaleProvider } from "./provider";
+export { LocaleProvider } from "./provider";

@@ -3,9 +3,9 @@ import { createInterceptor } from "@orderly.network/plugin-core";
 import type { OrderlySDK } from "@orderly.network/plugin-core";
 import { FastPlaceOrderWidget } from "./components/fastPlaceOrderWidget";
 import { useFastPlaceOrderVisibility } from "./components/fastPlaceOrderWidget/fastPlaceOrderWidget.script";
-import { FastPlaceOrderLocaleProvider } from "./i18n";
+import { LocaleProvider } from "./i18n";
 
-export { FastPlaceOrderLocaleProvider } from "./i18n";
+
 
 export interface FastPlaceOrderPluginOptions {
   /** Controls whether fullscreen entry auto-opens the fast order popup. */
@@ -33,14 +33,14 @@ export function registerFastPlaceOrderPlugin(options?: FastPlaceOrderPluginOptio
         createInterceptor(
           "TradingView.Desktop" as any,
           (Original, props, _api) => (
-            <FastPlaceOrderLocaleProvider>
+            <LocaleProvider>
               <Original {...props} />
               {/* @ts-ignore */}
               <FastPlaceOrderWidget
                 symbol={props.symbol}
                 autoShowOnFullscreen={autoShowOnFullscreen}
               />
-            </FastPlaceOrderLocaleProvider>
+            </LocaleProvider>
           ),
         ),
         createInterceptor(
