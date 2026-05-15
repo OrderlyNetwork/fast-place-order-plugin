@@ -15,7 +15,8 @@ export default defineConfig((options) => ({
     "@orderly.network/plugin-core",
     "@orderly.network/hooks",
     "@orderly.network/i18n",
+    "@orderly.network/types",
     "@orderly.network/ui",
-    "@orderly.network/trading",
+    "@orderly.network/utils",
   ],
 }));

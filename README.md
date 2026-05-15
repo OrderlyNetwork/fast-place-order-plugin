@@ -77,13 +77,11 @@ import "@orderly.network/fast-place-order-plugin/dist/styles.css";
 
 This plugin requires the following Orderly SDK packages:
 
-- `@orderly.network/core`
 - `@orderly.network/hooks`
-- `@orderly.network/plugin-core`
 - `@orderly.network/i18n`
+- `@orderly.network/plugin-core`
 - `@orderly.network/types`
 - `@orderly.network/ui`
-- `@orderly.network/ui-scaffold`
 - `@orderly.network/utils`
 - `react` >= 18
 - `react-dom` >= 18
