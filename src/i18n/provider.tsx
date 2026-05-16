@@ -38,6 +38,7 @@ const localeJsonLoaders: Record<LocaleEnum, LocaleJsonLoader | undefined> = {
   [LocaleEnum.tc]: () => import("./locales/tc.json"),
 };
 
+// Seed fallback messages before async locale chunks load to avoid flashing i18n keys.
 preloadDefaultResource(LocaleMessages);
 
 const resources: AsyncResources = (lang: LocaleCode, _ns: string) => {
