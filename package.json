@@ -1,6 +1,6 @@
 {
   "name": "@orderly.network/fast-place-order-plugin",
-  "version": "0.2.4-alpha.1",
+  "version": "0.2.4",
   "description": "Orderly SDK plugin — fast-place-order",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
