@@ -6,12 +6,12 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup && pnpm build-tailwind",
+    "build": "tsup && pnpm run build:css",
     "dev": "tsup --watch",
     "prepublishOnly": "pnpm build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-tailwind": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify"
+    "build:css": "tailwindcss build -i src/tailwind.css -o dist/styles.css --minify"
   },
   "files": [
     "dist"
