@@ -1,7 +1,8 @@
 {
   "name": "@orderly.network/fast-place-order-plugin",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Orderly SDK plugin — fast-place-order",
+  "repository": "git+https://github.com/OrderlyNetwork/fast-place-order-plugin.git",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -14,7 +15,8 @@
     "build:css": "tailwindcss build -i src/tailwind.css -o dist/styles.css --minify"
   },
   "files": [
-    "dist"
+    "dist",
+    "configSchema.json"
   ],
   "peerDependencies": {
     "@orderly.network/hooks": "^3.0.3",
