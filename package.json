@@ -1,6 +1,6 @@
 {
   "name": "@orderly.network/fast-place-order-plugin",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Orderly SDK plugin — fast-place-order",
   "repository": "git+https://github.com/OrderlyNetwork/fast-place-order-plugin.git",
   "main": "dist/index.js",
