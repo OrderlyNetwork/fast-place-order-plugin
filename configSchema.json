@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "autoShowOnFullscreen": {
+      "type": "boolean",
+      "description": "Controls whether fullscreen entry auto-opens the fast order popup."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}
